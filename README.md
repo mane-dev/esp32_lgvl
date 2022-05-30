@@ -1,4 +1,22 @@
-# LVGL project for ESP32
+# Setup
+
+- Instalar [esp-idf](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#manual-installation) manual
+
+- Clonar este repo y navegar a su folder
+
+- Establecer la plataforma `idf.py set-platform esp32`
+
+- Configurar los detalles del display `idf.py menuconfig` saldra el menu y seleccionar Component Config > LVGL TFT Display Controller > Select Predefined display configuration
+   - Si el board trae incluida la seleccionarla, sino elegir none
+   - Si no se eligio una configuracion predeterminada, poner los valores del GPIO en Display Pin Assignments
+   - Presionar `S` para guardar y despues `esc` hasta salir del menu
+   - Compilar `idf.py build`
+   - Flashear `idf.py -p <PORT> flash monitor`. El puerto se puede encontrar en el device manager de windows. Por ejemplo `COM3`
+
+
+
+-----------------
+# [Original] LVGL project for ESP32
 
 This is an ESP32 demo project showcasing LVGL v7 with support for several display controllers and touch controllers.
 The demo application is the `lv_demo_widgets` project from the [lv_examples](https://github.com/lvgl/lv_examples) repository.
